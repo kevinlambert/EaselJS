@@ -21,5 +21,11 @@
     "mikechambers",
     "wdamien"
   ],
-  "license": "MIT"
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "uglifyjs lib/easeljs-0.8.0.combined.js --source-map lib/easeljs-0.8.0.combined.js.map -c -m -o lib/easeljs-0.8.0.min.js --preamble \"/* easeljs v0.8.0 https://github.com/CreateJS/EaselJS/blob/master/LICENSE.txt */\""
+  }
 }
