@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 							}
 						},
             sourceMap: true,
-            sourceMapRoot: '../'
+            sourceMapRoot: 'src'
 					},
 					build: {
 						files: {
