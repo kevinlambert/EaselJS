@@ -59,7 +59,9 @@ module.exports = function (grunt) {
 							global_defs: {
 								"DEBUG": false
 							}
-						}
+						},
+            sourceMap: true,
+            sourceMapRoot: '../'
 					},
 					build: {
 						files: {
@@ -181,7 +183,7 @@ module.exports = function (grunt) {
 					},
 					src: {
 						files: [
-							{expand: true, cwd:'./output/', src: '*<%=version %>*.js', dest: '../lib/'}
+							{expand: true, cwd:'./output/', src: '*<%=version %>*.{js,js.map}', dest: '../lib/'}
 						]
 					}
 				},
@@ -348,7 +350,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', function() {
 		grunt.config("buildArgs", this.args || []);
 		getBuildArgs();
-		grunt.task.run(["setVersion", "coreBuild", "updatebower", "copy:docsSite", "clearBuildArgs"]);
+		grunt.task.run(["setVersion", "coreBuild", "updatebower", "updatepackage", "copy:docsSite", "clearBuildArgs"]);
 	});
 
 	grunt.registerTask('clearBuildArgs', function() {
